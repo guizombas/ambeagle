@@ -1,6 +1,6 @@
 # ambeagle
 
-![image](https://github.com/guizombas/ambeagle/assets/63319368/dc404069-dca9-4386-af52-96180e31d095)
+![image](https://github.com/guizombas/ambeagle/assets/63319368/c1c3da18-8d4a-430f-bd70-23b62eabdb34)
 
 > A GitHub App built with [Probot](https://github.com/probot/probot) that A Probot app
 
