@@ -1,0 +1,37 @@
+# This workflow will triage pull requests and apply a label based on the
+# paths that are modified in the pull request.
+#
+# To use this workflow, you will need to set up a .github/labeler.yml
+# file with configuration.  For more information, see:
+# https://github.com/actions/labeler
+
+name: Labeler
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+jobs:
+  label:
+
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+    - name: Verificar label
+      id: check_label
+      run: |
+        echo "Ação necessária se a issue tiver a label específica"
+        if [[ "$(jq -r '.issue.labels[].name' $GITHUB_EVENT_PATH)" == *"requirement"* ]]; then
+          echo "::set-output name=match::true"
+        else
+          echo "::set-output name=match::false"
+        fi
+    - name: Executar se a label for correspondente
+      if: steps.check_label.outputs.match == 'true'
+      run: |
+        echo "Ação a ser executada se a issue tiver a label específica"
+    - uses: actions/labeler@v4
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
