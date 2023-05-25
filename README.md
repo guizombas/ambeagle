@@ -4,6 +4,10 @@
 
 > A GitHub App built with [Probot](https://github.com/probot/probot) that A Probot app
 
+## Prerequisites
+
+Follow https://github.com/OpenReqEU/prs-improving-requirements-quality tutorial to build and setup the requirement quality API. 
+
 ## Setup
 
 ```sh
